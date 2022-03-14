@@ -11,14 +11,14 @@
 ******************************************************************************/
 enum DIR {
     NONE = 0,
-    U = 1,
-    D = 2,
-    L = 3,
-    R = 4,
-    U_L = 5,
-    U_R = 6,
-    D_L = 7,
-    D_R = 8
+    H = 1,
+    B = 2,
+    G = 3,
+    D = 4,
+    H_G = 5,
+    H_D = 6,
+    B_G = 7,
+    B_D = 8
 }
 
 enum KEY {
@@ -136,21 +136,21 @@ namespace WSJoyStick {
         let Precision = 150; //0.5v
 
         if (Right > Precision && Dy < Precision) {
-            Get_Dir = DIR.R;
-        } else if (Left > Precision && Dy < Precision) {
-            Get_Dir = DIR.L;
-        } else if (Up > Precision && Dx < Precision) {
-            Get_Dir = DIR.U;
-        } else if (Down > Precision && Dx < Precision) {
             Get_Dir = DIR.D;
+        } else if (Left > Precision && Dy < Precision) {
+            Get_Dir = DIR.G;
+        } else if (Up > Precision && Dx < Precision) {
+            Get_Dir = DIR.H;
+        } else if (Down > Precision && Dx < Precision) {
+            Get_Dir = DIR.B;
         } else if (Right > Precision && Up > Precision) {
-            Get_Dir = DIR.U_R;
+            Get_Dir = DIR.H_D;
         } else if (Right > Precision && Down > Precision) {
-            Get_Dir = DIR.D_R;
+            Get_Dir = DIR.B_D;
         } else if (Left > Precision && Up > Precision) {
-            Get_Dir = DIR.U_L;
+            Get_Dir = DIR.H_G;
         } else if (Left > Precision && Down > Precision) {
-            Get_Dir = DIR.D_L;
+            Get_Dir = DIR.B_G;
         } else {
             Get_Dir = DIR.NONE;
         }
